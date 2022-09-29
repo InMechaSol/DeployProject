@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "DeployTestProjectPreLink": {
+      "commandName": "Project",
+      "commandLineArgs": "$(SolutionDir)CR\\Lib_GripperFW_Tests",
+      "workingDirectory": "$(SolutionDir)DeployProject"
+    }
+  }
+}
