@@ -73,8 +73,6 @@ namespace DeployProject
                                     {
                                         madeit = true;
                                         Console.WriteLine("Lib_GripperFW: Deploying to Teensy Repository");
-                                        RepoManager.CopyDirectoryArduinoMod(ccOSDir + "\\ccLibs\\iq-module-communication-cpp\\src", DeployedDir);
-                                        RepoManager.CopyDirectoryArduinoMod(ccOSDir + "\\ccLibs\\iq-module-communication-cpp\\inc", DeployedDir);
 
                                         RepoManager.FixFileBriefNLicense(ccNOosDir + "\\computeModule");
                                         RepoManager.CopyDirectoryArduinoMod(ccNOosDir + "\\computeModule", DeployedDir);
@@ -96,6 +94,46 @@ namespace DeployProject
                         throw (new Exception("A Bad Input Directory"));
                     else
                         Console.WriteLine("\"Lib_GripperFW: Done!");
+                    return;
+                }
+                else if (args[0].Contains("ccNOos_Tests"))
+                {
+                    bool madeit = false;
+                    string DeployedDir = args[0] + "\\Teensy";
+                    string ccNOosDir = args[0] + "\\ccNOos";
+                    string ccOSDir = args[0] + "\\ccOS";
+                    string FWDir = args[0] + "\\Tests";
+
+
+                    if (Directory.Exists(args[0]))
+                        if (Directory.Exists(ccOSDir))
+                            if (Directory.Exists(ccNOosDir))
+                                if (Directory.Exists(FWDir))
+                                    if (Directory.Exists(DeployedDir))
+                                    {
+                                        madeit = true;
+                                        Console.WriteLine("ccNOos_Tests: Deploying to Teensy Repository");
+
+                                        RepoManager.FixFileBriefNLicense(ccNOosDir + "\\computeModule");
+                                        RepoManager.CopyDirectoryArduinoMod(ccNOosDir + "\\computeModule", DeployedDir);
+                                        RepoManager.FixFileBriefNLicense(ccNOosDir + "\\consoleMenu");
+                                        RepoManager.CopyDirectoryArduinoMod(ccNOosDir + "\\consoleMenu", DeployedDir);
+                                        RepoManager.FixFileBriefNLicense(ccNOosDir + "\\executionSystem");
+                                        RepoManager.CopyDirectoryArduinoMod(ccNOosDir + "\\executionSystem", DeployedDir);
+                                        RepoManager.FixFileBriefNLicense(ccNOosDir + "\\ioDevice");
+                                        RepoManager.CopyDirectoryArduinoMod(ccNOosDir + "\\ioDevice", DeployedDir);
+                                        RepoManager.FixFileBriefNLicense(ccNOosDir + "\\packetsAPI");
+                                        RepoManager.CopyDirectoryArduinoMod(ccNOosDir + "\\packetsAPI", DeployedDir);
+
+                                        RepoManager.CopyDirectoryArduinoMod(FWDir, DeployedDir);
+                                        RepoManager.CopyDirectoryArduinoMod(FWDir + "\\apiModules", DeployedDir);
+                                        RepoManager.CopyDirectoryArduinoMod(FWDir + "\\deviceModules", DeployedDir);
+                                    }
+
+                    if (!madeit)
+                        throw (new Exception("A Bad Input Directory"));
+                    else
+                        Console.WriteLine("\"ccNOos_Tests: Done!");
                     return;
                 }
                 else

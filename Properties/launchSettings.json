@@ -2,7 +2,7 @@
   "profiles": {
     "DeployTestProjectPreLink": {
       "commandName": "Project",
-      "commandLineArgs": "$(SolutionDir)CR\\Lib_GripperFW_Tests",
+      "commandLineArgs": "$(SolutionDir)CR\\ccNOos_Tests",
       "workingDirectory": "$(SolutionDir)DeployProject"
     }
   }
