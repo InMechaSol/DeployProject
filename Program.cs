@@ -73,7 +73,8 @@ namespace DeployProject
                                     {
                                         madeit = true;
                                         Console.WriteLine("Lib_GripperFW: Deploying to Teensy Repository");
-
+                                        RepoManager.FixFileBriefNLicense(ccNOosDir + "\\ccLibs\\mcs");
+                                        RepoManager.CopyDirectoryArduinoMod(ccNOosDir + "\\ccLibs\\mcs", DeployedDir);
                                         RepoManager.FixFileBriefNLicense(ccNOosDir + "\\computeModule");
                                         RepoManager.CopyDirectoryArduinoMod(ccNOosDir + "\\computeModule", DeployedDir);
                                         RepoManager.FixFileBriefNLicense(ccNOosDir + "\\consoleMenu");
@@ -114,6 +115,7 @@ namespace DeployProject
                                         madeit = true;
                                         Console.WriteLine("ccNOos_Tests: Deploying to Teensy Repository");
 
+                                        
                                         RepoManager.FixFileBriefNLicense(ccNOosDir + "\\computeModule");
                                         RepoManager.CopyDirectoryArduinoMod(ccNOosDir + "\\computeModule", DeployedDir);
                                         RepoManager.FixFileBriefNLicense(ccNOosDir + "\\consoleMenu");
